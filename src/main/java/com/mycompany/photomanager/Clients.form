@@ -84,20 +84,12 @@
                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jtxtClientId" min="-2" pref="255" max="-2" attributes="0"/>
-                                                  <Component id="jtxtName" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jtxtSurname" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jtxtPhone" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jtxtEmail" alignment="1" min="-2" pref="255" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jtxtClientId" max="32767" attributes="0"/>
+                                  <Component id="jtxtName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jtxtSurname" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jtxtPhone" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jtxtEmail" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel10" min="-2" pref="69" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -108,12 +100,9 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jComboMonth" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jtxtPrice1" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                                  <Component id="jtxtPrice" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="jComboBan" min="-2" pref="85" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="jtxtPrice1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jComboBan" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="jComboSessionType" alignment="0" pref="255" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -188,10 +177,10 @@
                       </Group>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jtxtPrice" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jComboSessionType" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="jComboBan" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
@@ -321,16 +310,6 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Date"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jtxtPrice">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -593,6 +572,34 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Price"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboSessionType">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="14">
+            <StringItem index="0" value="Fiances"/>
+            <StringItem index="1" value="Newborn"/>
+            <StringItem index="2" value="Wedding"/>
+            <StringItem index="3" value="ParentsDay"/>
+            <StringItem index="4" value="GrandParentDay"/>
+            <StringItem index="5" value="MomDay"/>
+            <StringItem index="6" value="DadDay"/>
+            <StringItem index="7" value="Easter"/>
+            <StringItem index="8" value="Christmas"/>
+            <StringItem index="9" value="ValentinesDay"/>
+            <StringItem index="10" value="OpenAir"/>
+            <StringItem index="11" value="Pregnant"/>
+            <StringItem index="12" value="Other"/>
+            <StringItem index="13" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
