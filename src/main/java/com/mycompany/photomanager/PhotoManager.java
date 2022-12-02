@@ -1,10 +1,11 @@
 package com.mycompany.photomanager;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
+
 
 public class PhotoManager extends Application {
   @Override // Override the start method in the Application class
