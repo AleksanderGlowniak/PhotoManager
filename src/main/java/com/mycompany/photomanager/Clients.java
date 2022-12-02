@@ -74,6 +74,12 @@ public class Clients extends javax.swing.JFrame {
         jtxtPrice = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jComboSessionType = new javax.swing.JComboBox<>();
+        jComboFirstSessionChoice = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jComboLastSessionChoice = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jComboSource = new javax.swing.JComboBox<>();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -81,63 +87,48 @@ public class Clients extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(2147483647, 40));
         setPreferredSize(new java.awt.Dimension(900, 40));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         jLabel2.setText("Clients");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 16, 221, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Client Id");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 163, 87, 32));
 
         jtxtClientId.setBackground(new java.awt.Color(255, 255, 204));
         jtxtClientId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jtxtClientId, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 163, 255, 32));
 
         jtxtName.setBackground(new java.awt.Color(255, 255, 204));
         jtxtName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jtxtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 201, 255, 32));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Name");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 201, 87, 32));
 
         jtxtSurname.setBackground(new java.awt.Color(255, 255, 204));
         jtxtSurname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jtxtSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 239, 255, 32));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Surname");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 239, 87, 32));
 
         jtxtPhone.setBackground(new java.awt.Color(255, 255, 204));
         jtxtPhone.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jtxtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 277, 255, 32));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Phone");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 277, 87, 32));
 
         jtxtEmail.setBackground(new java.awt.Color(255, 255, 204));
         jtxtEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jtxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 315, 255, 32));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("E-mail");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 315, 87, 32));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Date");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 353, 45, 32));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("SessionType");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 472, -1, 32));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Ban");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 513, 87, 32));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,8 +144,6 @@ public class Clients extends javax.swing.JFrame {
         jTable1.setPreferredSize(new java.awt.Dimension(600, 800));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 163, 750, 532));
-
         jComboMonth.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "Septemper", "October", "November", "December" }));
         jComboMonth.addActionListener(new java.awt.event.ActionListener() {
@@ -162,15 +151,12 @@ public class Clients extends javax.swing.JFrame {
                 jComboMonthActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 355, -1, -1));
 
         jComboBan.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
-        getContentPane().add(jComboBan, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 515, 85, -1));
 
         jComboYear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025", "2026", "2027", "2029", "2030" }));
-        getContentPane().add(jComboYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 393, -1, -1));
 
         jbtnHome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnHome.setText("Home");
@@ -179,12 +165,10 @@ public class Clients extends javax.swing.JFrame {
                 jbtnHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 16, 120, 60));
 
         jbtnAdd.setBackground(new java.awt.Color(204, 255, 204));
         jbtnAdd.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnAdd.setText("Add");
-        getContentPane().add(jbtnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 557, 120, 60));
 
         jbtnReset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnReset.setText("Reset");
@@ -193,16 +177,13 @@ public class Clients extends javax.swing.JFrame {
                 jbtnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 557, 120, 60));
 
         jbtnDelete.setBackground(new java.awt.Color(255, 153, 153));
         jbtnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnDelete.setText("Delete");
-        getContentPane().add(jbtnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 635, 120, 60));
 
         jbtnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnUpdate.setText("Update");
-        getContentPane().add(jbtnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 635, 120, 60));
 
         jbtnPrint.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnPrint.setText("Print");
@@ -211,27 +192,204 @@ public class Clients extends javax.swing.JFrame {
                 jbtnPrintActionPerformed(evt);
             }
         });
-        getContentPane().add(jbtnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 713, 120, 60));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Year");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 391, 69, 32));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setText("Month");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 353, 69, 32));
 
         jtxtPrice.setBackground(new java.awt.Color(255, 255, 204));
         jtxtPrice.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(jtxtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 429, 255, 32));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setText("Price");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 429, 87, 32));
 
         jComboSessionType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboSessionType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fiances", "Newborn", "Wedding", "ParentsDay", "GrandParentDay", "MomDay", "DadDay", "Easter", "Christmas", "ValentinesDay", "OpenAir", "Pregnant", "Other", " " }));
-        getContentPane().add(jComboSessionType, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 474, 255, -1));
+        jComboSessionType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OpenAir", "Family", "Newborn", "Pregnant", "Fiances", "Wedding", "ParentsDay", "GrandParentDay", "MomDay", "DadDay", "Easter", "Christmas", "ValentinesDay", "Other", " " }));
+
+        jComboFirstSessionChoice.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboFirstSessionChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Small", "Mid", "Max", " " }));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel13.setText("FirstChoiceSession");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setText("LastChoiceSession");
+
+        jComboLastSessionChoice.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboLastSessionChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Small", "Mid", "Max", " " }));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setText("FromWhatSource");
+
+        jComboSource.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facebook", "Instagram", "Recommendation", "Other", " " }));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(136, 136, 136)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbtnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel8)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jbtnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel15)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(42, 42, 42)
+                                                .addComponent(jbtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(40, 40, 40)
+                                                .addComponent(jbtnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jComboBan, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jComboSource, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabel13)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jComboFirstSessionChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel14)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jtxtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jtxtName, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jtxtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jtxtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jtxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGap(18, 18, 18)
+                                                            .addComponent(jComboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGap(18, 18, 18)
+                                                            .addComponent(jComboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jtxtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jComboSessionType, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(20, 20, 20)
+                                                    .addComponent(jComboLastSessionChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(22, 22, 22))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jtxtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jtxtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jtxtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jtxtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jtxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jComboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addComponent(jComboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6)
+                                .addComponent(jtxtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
+                                .addComponent(jComboSessionType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboFirstSessionChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboLastSessionChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboSource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbtnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbtnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbtnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -256,6 +414,9 @@ public class Clients extends javax.swing.JFrame {
         jComboYear.setSelectedIndex(0);
         jtxtPrice.setText("");
         jComboSessionType.setSelectedIndex(0);
+        jComboFirstSessionChoice.setSelectedIndex(0);
+        jComboLastSessionChoice.setSelectedIndex(0);
+        jComboSource.setSelectedIndex(0);
         jComboBan.setSelectedIndex(0);
            
     }//GEN-LAST:event_jbtnResetActionPerformed
@@ -314,13 +475,19 @@ public class Clients extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JComboBox<String> jComboBan;
+    private javax.swing.JComboBox<String> jComboFirstSessionChoice;
+    private javax.swing.JComboBox<String> jComboLastSessionChoice;
     private javax.swing.JComboBox<String> jComboMonth;
     private javax.swing.JComboBox<String> jComboSessionType;
+    private javax.swing.JComboBox<String> jComboSource;
     private javax.swing.JComboBox<String> jComboYear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

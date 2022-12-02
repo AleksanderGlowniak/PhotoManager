@@ -36,6 +36,8 @@ public class Home extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(950, 250));
+        setPreferredSize(new java.awt.Dimension(950, 250));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
