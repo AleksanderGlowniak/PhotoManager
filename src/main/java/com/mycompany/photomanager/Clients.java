@@ -5,12 +5,19 @@
 
 package com.mycompany.photomanager;
 
+import com.mycompany.dbConnector.ConnectionProvider;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.MessageFormat;
+import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -22,7 +29,7 @@ import javax.swing.JTable;
  */
 public class Clients extends javax.swing.JFrame {
     
-    Connection con = null;
+    ConnectionProvider sqlConn = new ConnectionProvider();
     PreparedStatement pst = null;
     ResultSet rs = null;
     int q, i, id, deleteItem;
@@ -33,6 +40,60 @@ public class Clients extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
+        //=========================================================Function=========================================================
+    
+    public void upDateDB()
+    {
+        try
+        {
+            Connection sqlConn = ConnectionProvider.getCon();
+            pst = sqlConn.prepareStatement("Select * from clients");
+            
+            rs = pst.executeQuery();
+            ResultSetMetaData stData = rs.getMetaData();
+            
+            q = stData.getColumnCount();
+            
+            DefaultTableModel RecordTable = (DefaultTableModel)jTable1.getModel();
+                    RecordTable.setRowCount(0);
+                    
+                    while(rs.next()){
+                    Vector columnData = new Vector();
+                    
+                    for(i = 1; i <= q; i++)
+                    {
+                        columnData.add(rs.getString("Id"));
+                        columnData.add(rs.getString("ClientId"));
+                        columnData.add(rs.getString("Name"));
+                        columnData.add(rs.getString("Surname"));
+                        columnData.add(rs.getString("Phone"));
+                        columnData.add(rs.getString("Email"));
+                        columnData.add(rs.getString("Month"));
+                        columnData.add(rs.getString("Year"));
+                        columnData.add(rs.getString("Price"));
+                        columnData.add(rs.getString("SessionType"));
+                        columnData.add(rs.getString("FirstChoice"));
+                        columnData.add(rs.getString("LastChoice"));
+                        columnData.add(rs.getString("Source"));
+                        columnData.add(rs.getString("Ban"));
+                    }
+                    RecordTable.addRow(columnData);
+     
+                    }
+        }
+        catch (Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        
+        }
+    
+    
+    }
+    
+    
+    //=========================================================End Function=========================================================
+    
+    
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -138,15 +199,11 @@ public class Clients extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "ClientId", "Name", "Surname", "Phone", "Email", "Month", "Year", "Price", "Session Type", "First Choice", "Last Choice", "Source", "Ban"
+                "Id", "ClientId", "Name", "Surname", "Phone", "Email", "Month", "Year", "Price", "SessionType", "FirstChoice", "LastChoice", "Source", "Ban"
             }
         ));
-        jTable1.setMinimumSize(new java.awt.Dimension(1, 1));
         jTable1.setName(""); // NOI18N
-        jTable1.setPreferredSize(new java.awt.Dimension(1, 1));
         jTable1.setShowGrid(true);
-        jTable1.setShowHorizontalLines(true);
-        jTable1.setShowVerticalLines(true);
         jScrollPane1.setViewportView(jTable1);
         jTable1.getAccessibleContext().setAccessibleDescription("");
 
@@ -175,6 +232,11 @@ public class Clients extends javax.swing.JFrame {
         jbtnAdd.setBackground(new java.awt.Color(204, 255, 204));
         jbtnAdd.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnAdd.setText("Add");
+        jbtnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAddActionPerformed(evt);
+            }
+        });
 
         jbtnReset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnReset.setText("Reset");
@@ -442,6 +504,39 @@ public class Clients extends javax.swing.JFrame {
     
     }
     }//GEN-LAST:event_jbtnPrintActionPerformed
+
+    private void jbtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAddActionPerformed
+    
+        
+       try
+       {
+            Connection sqlConn = ConnectionProvider.getCon();
+            pst = sqlConn.prepareStatement("insert into clients(ClientID,Name,Surname,Phone,Email,Month,Year,Price,SessionType,FirstChoice,LastChoice,Source,Ban)value (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            
+            pst.setString(1, jtxtClientId.getText());
+            pst.setString(2, jtxtName.getText());
+            pst.setString(3, jtxtSurname.getText());
+            pst.setString(4, jtxtPhone.getText());
+            pst.setString(5, jtxtEmail.getText());
+            pst.setString(6,jComboMonth.getSelectedItem().toString());
+            pst.setString(7,jComboYear.getSelectedItem().toString());
+            pst.setString(8,jtxtPrice.getText());
+            pst.setString(9,jComboSessionType.getSelectedItem().toString());
+            pst.setString(10,jComboFirstSessionChoice.getSelectedItem().toString());
+            pst.setString(11,jComboLastSessionChoice.getSelectedItem().toString());
+            pst.setString(12,jComboSource.getSelectedItem().toString());
+            pst.setString(13,jComboBan.getSelectedItem().toString());
+            
+            
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Record added");
+            upDateDB();
+       }
+       
+                catch (SQLException ex){
+                java.util.logging.Logger.getLogger(ConnectionProvider.class.getName()).log(java.util.logging.Level.SEVERE,null,ex);
+               }
+    }//GEN-LAST:event_jbtnAddActionPerformed
 
     /**
      * @param args the command line arguments
