@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.KeyEvent;
 
 
 
@@ -33,11 +34,13 @@ public class Clients extends javax.swing.JFrame {
     PreparedStatement pst = null;
     ResultSet rs = null;
     int q, i, id, deleteItem;
+    private JFrame frame;
     
     /** Creates new form Clients */
     public Clients() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        upDateDB();
     }
 
         //=========================================================Function=========================================================
@@ -105,6 +108,7 @@ public class Clients extends javax.swing.JFrame {
 
         jCalendar1 = new com.toedter.calendar.JCalendar();
         popupMenu1 = new java.awt.PopupMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jtxtClientId = new javax.swing.JTextField();
@@ -157,6 +161,17 @@ public class Clients extends javax.swing.JFrame {
 
         jtxtClientId.setBackground(new java.awt.Color(255, 255, 204));
         jtxtClientId.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtxtClientId.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jtxtClientId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtxtClientIdMouseClicked(evt);
+            }
+        });
+        jtxtClientId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxtClientIdKeyPressed(evt);
+            }
+        });
 
         jtxtName.setBackground(new java.awt.Color(255, 255, 204));
         jtxtName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -172,6 +187,11 @@ public class Clients extends javax.swing.JFrame {
 
         jtxtPhone.setBackground(new java.awt.Color(255, 255, 204));
         jtxtPhone.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtxtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxtPhoneKeyPressed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Phone");
@@ -216,7 +236,7 @@ public class Clients extends javax.swing.JFrame {
         });
 
         jComboBan.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        jComboBan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
 
         jComboYear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025", "2026", "2027", "2029", "2030" }));
@@ -269,6 +289,11 @@ public class Clients extends javax.swing.JFrame {
 
         jtxtPrice.setBackground(new java.awt.Color(255, 255, 204));
         jtxtPrice.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtxtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxtPriceKeyPressed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setText("Price");
@@ -403,7 +428,7 @@ public class Clients extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtxtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtxtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
                                 .addComponent(jtxtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -535,8 +560,74 @@ public class Clients extends javax.swing.JFrame {
        
                 catch (SQLException ex){
                 java.util.logging.Logger.getLogger(ConnectionProvider.class.getName()).log(java.util.logging.Level.SEVERE,null,ex);
+                JOptionPane.showMessageDialog(this, "Connection problem or incorrect datas");
                }
     }//GEN-LAST:event_jbtnAddActionPerformed
+
+    private void jtxtClientIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtClientIdMouseClicked
+    
+        
+    }//GEN-LAST:event_jtxtClientIdMouseClicked
+
+    private void jtxtClientIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtClientIdKeyPressed
+    
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c)){
+        
+            jtxtClientId.setEditable(false); 
+            JOptionPane.showConfirmDialog(frame, "Only numbers allowed","ClientId",
+            JOptionPane.CLOSED_OPTION);
+        } else {
+        
+            jtxtClientId.setEditable(true); 
+            
+        }
+        
+    }//GEN-LAST:event_jtxtClientIdKeyPressed
+
+    private void jtxtPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPhoneKeyPressed
+        
+        String phoneNumber = jtxtPhone.getText();
+        int length = phoneNumber.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            
+            if(length<9){
+                
+            jtxtPhone.setEditable(true); 
+        } else {
+        
+            jtxtPhone.setEditable(false);    
+        }
+        }else
+        {
+        
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE)
+            {
+            jtxtPhone.setEditable(true);
+            }else{
+            jtxtPhone.setEditable(false);
+            }
+        
+        }
+    }//GEN-LAST:event_jtxtPhoneKeyPressed
+
+    private void jtxtPriceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPriceKeyPressed
+        
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c)){
+        
+            jtxtPrice.setEditable(false); 
+            JOptionPane.showConfirmDialog(frame, "Only numbers allowed","Price",
+            JOptionPane.CLOSED_OPTION);
+        } else {
+        
+            jtxtPrice.setEditable(true); 
+            
+        }
+    }//GEN-LAST:event_jtxtPriceKeyPressed
 
     /**
      * @param args the command line arguments
@@ -597,6 +688,7 @@ public class Clients extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbtnAdd;
