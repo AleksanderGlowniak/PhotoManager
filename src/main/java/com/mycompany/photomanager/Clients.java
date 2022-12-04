@@ -19,6 +19,8 @@ import javax.swing.JTable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 
 
@@ -96,7 +98,16 @@ public class Clients extends javax.swing.JFrame {
     //=========================================================End Function=========================================================
     
     
+    public void search (String str)
+    {
     
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        jTable1.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+        
+    
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -145,6 +156,8 @@ public class Clients extends javax.swing.JFrame {
         jComboLastSessionChoice = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jComboSource = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jtxtSearchBar = new javax.swing.JTextField();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -334,6 +347,26 @@ public class Clients extends javax.swing.JFrame {
         jComboSource.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facebook", "Instagram", "Recommendation", "Other", " " }));
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setText("Search here:");
+
+        jtxtSearchBar.setBackground(new java.awt.Color(255, 255, 204));
+        jtxtSearchBar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtxtSearchBar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jtxtSearchBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtxtSearchBarMouseClicked(evt);
+            }
+        });
+        jtxtSearchBar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtxtSearchBarKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtSearchBarKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -412,7 +445,13 @@ public class Clients extends javax.swing.JFrame {
                                                     .addComponent(jComboLastSessionChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(22, 22, 22))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(591, 591, 591)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxtSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -421,7 +460,11 @@ public class Clients extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(74, 74, 74)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxtSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -746,6 +789,22 @@ public class Clients extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnDeleteActionPerformed
 
+    private void jtxtSearchBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxtSearchBarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtSearchBarMouseClicked
+
+    private void jtxtSearchBarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtSearchBarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtSearchBarKeyPressed
+
+    private void jtxtSearchBarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtSearchBarKeyReleased
+    
+        
+        String searchString = jtxtSearchBar.getText();
+        search(searchString);
+        
+    }//GEN-LAST:event_jtxtSearchBarKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -797,6 +856,7 @@ public class Clients extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -819,6 +879,7 @@ public class Clients extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtName;
     private javax.swing.JTextField jtxtPhone;
     private javax.swing.JTextField jtxtPrice;
+    private javax.swing.JTextField jtxtSearchBar;
     private javax.swing.JTextField jtxtSurname;
     private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables
