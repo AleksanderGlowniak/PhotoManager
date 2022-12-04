@@ -274,6 +274,11 @@ public class Clients extends javax.swing.JFrame {
         jbtnDelete.setBackground(new java.awt.Color(255, 153, 153));
         jbtnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnDelete.setText("Delete");
+        jbtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnDeleteActionPerformed(evt);
+            }
+        });
 
         jbtnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnUpdate.setText("Update");
@@ -698,6 +703,48 @@ public class Clients extends javax.swing.JFrame {
         java.util.logging.Logger.getLogger(ConnectionProvider.class.getName()).log(java.util.logging.Level.SEVERE,null,ex);
         }
     }//GEN-LAST:event_jbtnUpdateActionPerformed
+
+    private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
+        
+        DefaultTableModel RecordTable = (DefaultTableModel)jTable1.getModel();
+        int SelectedRows = jTable1.getSelectedRow();
+    
+        try
+        {
+            id = Integer.parseInt(RecordTable.getValueAt(SelectedRows, 0).toString());
+            deleteItem = JOptionPane.showConfirmDialog(null, "Confirm if you want to delete",
+            "Warning",JOptionPane.YES_NO_OPTION);
+            if (deleteItem==JOptionPane.YES_OPTION){
+            
+            Connection sqlConn = ConnectionProvider.getCon();
+            pst = sqlConn.prepareStatement("delete from clients where Id=?");
+            
+            pst.setInt(1, id);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Record Deleted");
+            upDateDB();
+            
+            jtxtClientId.setText("");
+            jtxtClientId.requestFocus();
+            jtxtName.setText("");
+            jtxtPhone.setText("");
+            jtxtEmail.setText("");
+            jtxtPrice.setText("");
+            jComboMonth.setSelectedIndex(0);
+            jComboYear.setSelectedIndex(0);
+            jtxtPrice.setText("");
+            jComboSessionType.setSelectedIndex(0);
+            jComboFirstSessionChoice.setSelectedIndex(0);
+            jComboLastSessionChoice.setSelectedIndex(0);
+            jComboSource.setSelectedIndex(0);
+            jComboBan.setSelectedIndex(0);
+    
+        }
+    }
+        catch(SQLException e){
+        System.err.println(e);
+        }
+    }//GEN-LAST:event_jbtnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
