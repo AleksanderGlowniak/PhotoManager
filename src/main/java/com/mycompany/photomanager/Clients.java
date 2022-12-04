@@ -224,6 +224,11 @@ public class Clients extends javax.swing.JFrame {
         ));
         jTable1.setName(""); // NOI18N
         jTable1.setShowGrid(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getAccessibleContext().setAccessibleDescription("");
 
@@ -269,9 +274,19 @@ public class Clients extends javax.swing.JFrame {
         jbtnDelete.setBackground(new java.awt.Color(255, 153, 153));
         jbtnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnDelete.setText("Delete");
+        jbtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnDeleteActionPerformed(evt);
+            }
+        });
 
         jbtnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnUpdate.setText("Update");
+        jbtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnUpdateActionPerformed(evt);
+            }
+        });
 
         jbtnPrint.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnPrint.setText("Print");
@@ -536,7 +551,8 @@ public class Clients extends javax.swing.JFrame {
        try
        {
             Connection sqlConn = ConnectionProvider.getCon();
-            pst = sqlConn.prepareStatement("insert into clients(ClientID,Name,Surname,Phone,Email,Month,Year,Price,SessionType,FirstChoice,LastChoice,Source,Ban)value (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            pst = sqlConn.prepareStatement("insert into clients(ClientId,Name,Surname,Phone,Email,Month,Year,Price,"
+                    + "SessionType,FirstChoice,LastChoice,Source,Ban)value (?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
             pst.setString(1, jtxtClientId.getText());
             pst.setString(2, jtxtName.getText());
@@ -628,6 +644,107 @@ public class Clients extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jtxtPriceKeyPressed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        
+        DefaultTableModel RecordTable = (DefaultTableModel)jTable1.getModel();
+                 int SelectedRows = jTable1.getSelectedRow();
+                 
+                 jtxtClientId.setText(RecordTable.getValueAt(SelectedRows, 1).toString());
+                 jtxtName.setText(RecordTable.getValueAt(SelectedRows, 2).toString());
+                 jtxtSurname.setText(RecordTable.getValueAt(SelectedRows, 3).toString());
+                 jtxtPhone.setText(RecordTable.getValueAt(SelectedRows, 4).toString());
+                 jtxtEmail.setText(RecordTable.getValueAt(SelectedRows, 5).toString());
+                 jComboMonth.setSelectedItem(RecordTable.getValueAt(SelectedRows, 6));
+                 jComboYear.setSelectedItem(RecordTable.getValueAt(SelectedRows, 7));
+                 jtxtPrice.setText(RecordTable.getValueAt(SelectedRows, 8).toString());
+                 jComboSessionType.setSelectedItem(RecordTable.getValueAt(SelectedRows, 9));
+                 jComboFirstSessionChoice.setSelectedItem(RecordTable.getValueAt(SelectedRows, 10));
+                 jComboLastSessionChoice.setSelectedItem(RecordTable.getValueAt(SelectedRows, 11));
+                 jComboSource.setSelectedItem(RecordTable.getValueAt(SelectedRows, 12));
+                 jComboBan.setSelectedItem(RecordTable.getValueAt(SelectedRows, 13));
+       
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jbtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUpdateActionPerformed
+            try
+        {
+            Connection sqlConn = ConnectionProvider.getCon();
+            
+            int row = jTable1.getSelectedRow();
+            String value = (jTable1.getModel().getValueAt(row, 0).toString());
+            
+            pst = sqlConn.prepareStatement("update clients set ClientId = ?,Name = ?,Surname = ?,Phone = ?,Email = ?,Month = ?,Year = ?,Price = ?,"
+                    + "SessionType = ?,FirstChoice = ?,LastChoice = ?,Source = ?,Ban = ? where Id = "+value);
+            
+            pst.setString(1, jtxtClientId.getText());
+            pst.setString(2, jtxtName.getText());
+            pst.setString(3, jtxtSurname.getText());
+            pst.setString(4, jtxtPhone.getText());
+            pst.setString(5, jtxtEmail.getText());
+            pst.setString(6, jComboMonth.getSelectedItem().toString());
+            pst.setString(7, jComboYear.getSelectedItem().toString());
+            pst.setString(8, jtxtPrice.getText());
+            pst.setString(9, jComboSessionType.getSelectedItem().toString());
+            pst.setString(10, jComboFirstSessionChoice.getSelectedItem().toString());
+            pst.setString(11, jComboLastSessionChoice.getSelectedItem().toString());
+            pst.setString(12, jComboSource.getSelectedItem().toString());
+            pst.setString(13, jComboBan.getSelectedItem().toString());
+            
+            pst.executeUpdate();
+            
+            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            model.setRowCount(0);
+            
+            JOptionPane.showMessageDialog(this, "Record Updated");
+            upDateDB();
+        }
+        catch (SQLException ex){
+        java.util.logging.Logger.getLogger(ConnectionProvider.class.getName()).log(java.util.logging.Level.SEVERE,null,ex);
+        }
+    }//GEN-LAST:event_jbtnUpdateActionPerformed
+
+    private void jbtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDeleteActionPerformed
+        
+        DefaultTableModel RecordTable = (DefaultTableModel)jTable1.getModel();
+        int SelectedRows = jTable1.getSelectedRow();
+    
+        try
+        {
+            id = Integer.parseInt(RecordTable.getValueAt(SelectedRows, 0).toString());
+            deleteItem = JOptionPane.showConfirmDialog(null, "Confirm if you want to delete",
+            "Warning",JOptionPane.YES_NO_OPTION);
+            if (deleteItem==JOptionPane.YES_OPTION){
+            
+            Connection sqlConn = ConnectionProvider.getCon();
+            pst = sqlConn.prepareStatement("delete from clients where Id=?");
+            
+            pst.setInt(1, id);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Record Deleted");
+            upDateDB();
+            
+            jtxtClientId.setText("");
+            jtxtClientId.requestFocus();
+            jtxtName.setText("");
+            jtxtPhone.setText("");
+            jtxtEmail.setText("");
+            jtxtPrice.setText("");
+            jComboMonth.setSelectedIndex(0);
+            jComboYear.setSelectedIndex(0);
+            jtxtPrice.setText("");
+            jComboSessionType.setSelectedIndex(0);
+            jComboFirstSessionChoice.setSelectedIndex(0);
+            jComboLastSessionChoice.setSelectedIndex(0);
+            jComboSource.setSelectedIndex(0);
+            jComboBan.setSelectedIndex(0);
+    
+        }
+    }
+        catch(SQLException e){
+        System.err.println(e);
+        }
+    }//GEN-LAST:event_jbtnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
