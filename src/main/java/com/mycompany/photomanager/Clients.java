@@ -224,6 +224,11 @@ public class Clients extends javax.swing.JFrame {
         ));
         jTable1.setName(""); // NOI18N
         jTable1.setShowGrid(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getAccessibleContext().setAccessibleDescription("");
 
@@ -628,6 +633,27 @@ public class Clients extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jtxtPriceKeyPressed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        
+        DefaultTableModel RecordTable = (DefaultTableModel)jTable1.getModel();
+                 int SelectedRows = jTable1.getSelectedRow();
+                 
+                 jtxtClientId.setText(RecordTable.getValueAt(SelectedRows, 1).toString());
+                 jtxtName.setText(RecordTable.getValueAt(SelectedRows, 2).toString());
+                 jtxtSurname.setText(RecordTable.getValueAt(SelectedRows, 3).toString());
+                 jtxtPhone.setText(RecordTable.getValueAt(SelectedRows, 4).toString());
+                 jtxtEmail.setText(RecordTable.getValueAt(SelectedRows, 5).toString());
+                 jComboMonth.setSelectedItem(RecordTable.getValueAt(SelectedRows, 6));
+                 jComboYear.setSelectedItem(RecordTable.getValueAt(SelectedRows, 7));
+                 jtxtPrice.setText(RecordTable.getValueAt(SelectedRows, 8).toString());
+                 jComboSessionType.setSelectedItem(RecordTable.getValueAt(SelectedRows, 9));
+                 jComboFirstSessionChoice.setSelectedItem(RecordTable.getValueAt(SelectedRows, 10));
+                 jComboLastSessionChoice.setSelectedItem(RecordTable.getValueAt(SelectedRows, 11));
+                 jComboSource.setSelectedItem(RecordTable.getValueAt(SelectedRows, 12));
+                 jComboBan.setSelectedItem(RecordTable.getValueAt(SelectedRows, 13));
+       
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
