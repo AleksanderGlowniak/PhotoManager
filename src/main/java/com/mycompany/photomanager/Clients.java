@@ -277,6 +277,11 @@ public class Clients extends javax.swing.JFrame {
 
         jbtnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnUpdate.setText("Update");
+        jbtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnUpdateActionPerformed(evt);
+            }
+        });
 
         jbtnPrint.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnPrint.setText("Print");
@@ -541,7 +546,8 @@ public class Clients extends javax.swing.JFrame {
        try
        {
             Connection sqlConn = ConnectionProvider.getCon();
-            pst = sqlConn.prepareStatement("insert into clients(ClientID,Name,Surname,Phone,Email,Month,Year,Price,SessionType,FirstChoice,LastChoice,Source,Ban)value (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            pst = sqlConn.prepareStatement("insert into clients(ClientId,Name,Surname,Phone,Email,Month,Year,Price,"
+                    + "SessionType,FirstChoice,LastChoice,Source,Ban)value (?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
             pst.setString(1, jtxtClientId.getText());
             pst.setString(2, jtxtName.getText());
@@ -654,6 +660,44 @@ public class Clients extends javax.swing.JFrame {
                  jComboBan.setSelectedItem(RecordTable.getValueAt(SelectedRows, 13));
        
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jbtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUpdateActionPerformed
+            try
+        {
+            Connection sqlConn = ConnectionProvider.getCon();
+            
+            int row = jTable1.getSelectedRow();
+            String value = (jTable1.getModel().getValueAt(row, 0).toString());
+            
+            pst = sqlConn.prepareStatement("update clients set ClientId = ?,Name = ?,Surname = ?,Phone = ?,Email = ?,Month = ?,Year = ?,Price = ?,"
+                    + "SessionType = ?,FirstChoice = ?,LastChoice = ?,Source = ?,Ban = ? where Id = "+value);
+            
+            pst.setString(1, jtxtClientId.getText());
+            pst.setString(2, jtxtName.getText());
+            pst.setString(3, jtxtSurname.getText());
+            pst.setString(4, jtxtPhone.getText());
+            pst.setString(5, jtxtEmail.getText());
+            pst.setString(6, jComboMonth.getSelectedItem().toString());
+            pst.setString(7, jComboYear.getSelectedItem().toString());
+            pst.setString(8, jtxtPrice.getText());
+            pst.setString(9, jComboSessionType.getSelectedItem().toString());
+            pst.setString(10, jComboFirstSessionChoice.getSelectedItem().toString());
+            pst.setString(11, jComboLastSessionChoice.getSelectedItem().toString());
+            pst.setString(12, jComboSource.getSelectedItem().toString());
+            pst.setString(13, jComboBan.getSelectedItem().toString());
+            
+            pst.executeUpdate();
+            
+            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            model.setRowCount(0);
+            
+            JOptionPane.showMessageDialog(this, "Record Updated");
+            upDateDB();
+        }
+        catch (SQLException ex){
+        java.util.logging.Logger.getLogger(ConnectionProvider.class.getName()).log(java.util.logging.Level.SEVERE,null,ex);
+        }
+    }//GEN-LAST:event_jbtnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
