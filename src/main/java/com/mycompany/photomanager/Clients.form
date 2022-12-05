@@ -142,14 +142,13 @@
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="591" max="-2" attributes="0"/>
+                      <Component id="jLabel16" min="-2" pref="125" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jtxtSearchBar" min="-2" pref="500" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="22" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="591" max="-2" attributes="0"/>
-              <Component id="jLabel16" min="-2" pref="125" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jtxtSearchBar" min="-2" pref="500" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
