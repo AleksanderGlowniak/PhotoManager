@@ -4,7 +4,16 @@
  */
 package com.mycompany.photomanager;
 
+import com.mycompany.dbConnector.ConnectionProvider;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.JFrame;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
+
 
 /**
  *
@@ -19,7 +28,8 @@ public class Statistics extends javax.swing.JFrame {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-
+    
+    PreparedStatement pst = null;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,21 +39,96 @@ public class Statistics extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jbtnHome = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jbtnMoney = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jbtnHome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jbtnHome.setText("Home");
+        jbtnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnHomeActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        jLabel2.setText("Statistics");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Charts:");
+
+        jbtnMoney.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbtnMoney.setText("Money in time:");
+        jbtnMoney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnMoneyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(265, 265, 265)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtnMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(476, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnMoney)
+                .addContainerGap(593, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbtnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnHomeActionPerformed
+
+        setVisible(false);
+        new Home().setVisible(true);
+    }//GEN-LAST:event_jbtnHomeActionPerformed
+
+    private void jbtnMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMoneyActionPerformed
+    
+        
+        try
+        {
+        
+        String query = "Select Month, price from clients";
+        JDBCCategoryDataset dataSet = new JDBCCategoryDataset(ConnectionProvider.getCon(), query);
+            JFreeChart chart = ChartFactory.createLineChart("Money chart", "Month", "Money", dataSet, PlotOrientation.VERTICAL, false, true, true);
+            BarRenderer renderer = null;
+            CategoryPlot plot = null;
+            renderer = new BarRenderer();
+            ChartFrame frame = new ChartFrame("Money Chart", chart);
+            frame.setVisible(true);
+            frame.setSize(1200,650);
+        }
+        catch (Exception e)
+        {
+        
+        
+        }
+        
+    }//GEN-LAST:event_jbtnMoneyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,5 +166,9 @@ public class Statistics extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jbtnHome;
+    private javax.swing.JButton jbtnMoney;
     // End of variables declaration//GEN-END:variables
 }
