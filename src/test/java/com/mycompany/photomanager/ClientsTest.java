@@ -18,6 +18,35 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ClientsTest {
     
     
+    static Clients instance;
+    public ClientsTest() {
+    }
+    
+    @BeforeAll
+    public static void setUpClass() {
+        instance = new Clients();
+    }
+    
+    @AfterAll
+    public static void tearDownClass() {
+    }
+    
+    @BeforeEach
+    public void setUp() {
+    }
+    
+    @AfterEach
+    public void tearDown() {
+    }
+
+    /**
+     * Test of search method, of class Clients.
+     */
+    @Test
+    public void testSearchField() {
+        
+    }
+    
 
 
     

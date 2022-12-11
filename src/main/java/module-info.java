@@ -6,5 +6,10 @@ module com.mycompany.photomanager {
     requires java.logging;
     requires jcalendar;
     requires java.sql;
+    requires jcommon;
+    requires AbsoluteLayout.RELEASE150;
+    requires jdk.charsets;
+    requires org.jfree.jfreechart;
+    requires java.compiler;
     exports com.mycompany.photomanager;
 }
