@@ -162,8 +162,8 @@ public class Clients extends javax.swing.JFrame {
         popupMenu1.setLabel("popupMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(2147483647, 40));
-        setPreferredSize(new java.awt.Dimension(900, 40));
+        setMinimumSize(new java.awt.Dimension(900, 400));
+        setPreferredSize(new java.awt.Dimension(900, 400));
         setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
