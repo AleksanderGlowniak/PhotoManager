@@ -5,6 +5,9 @@
 package com.mycompany.photomanager;
 
 import com.mycompany.dbConnector.ConnectionProvider;
+import com.mycompany.photomanager.piecharts.ModelPieChart;
+import java.awt.Color;
+
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -63,10 +66,18 @@ public class Statistics extends javax.swing.JFrame {
         jComboMonth = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jComboYearSource = new javax.swing.JComboBox<>();
-        jbtnSource = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        pieChart = new com.mycompany.photomanager.piecharts.PieChart();
+        jComboMonthSource = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jbtnHome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnHome.setText("Home");
@@ -145,18 +156,27 @@ public class Statistics extends javax.swing.JFrame {
         jLabel7.setText("Clients source:");
 
         jComboYearSource.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboYearSource.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025" }));
-
-        jbtnSource.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jbtnSource.setText("Source chart");
-        jbtnSource.addActionListener(new java.awt.event.ActionListener() {
+        jComboYearSource.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnSourceActionPerformed(evt);
+                jComboYearSourceActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel8.setText("Choose than click to show chart or total amount:");
+
+        jComboMonthSource.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jComboMonthSource.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboMonthSourceActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Month:");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("Year:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,22 +185,13 @@ public class Statistics extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboYearSource, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jbtnSource, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(265, 265, 265)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
@@ -202,12 +213,26 @@ public class Statistics extends javax.swing.JFrame {
                                         .addComponent(jbtnMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(33, 33, 33)
                                         .addComponent(jbtnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(jComboYearSource, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtxtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(309, Short.MAX_VALUE))
+                            .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(pieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,13 +267,48 @@ public class Statistics extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboYearSource, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtnSource, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(400, 400, 400))
+                    .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(pieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    private void showYear() throws SQLException {
+        
+        PreparedStatement p = ConnectionProvider.getCon().prepareStatement("SELECT Year as YearNumber FROM clients GROUP BY YearNumber");
+        
+        ResultSet r = p.executeQuery();
+        while (r.next()){
+        int year = r.getInt("YearNumber");
+        jComboYearSource.addItem(year + " ");
+        }
+        r.close();
+        p.close();
+    }
+    
+    
+    private void showMonth() throws SQLException {
+        PreparedStatement p = ConnectionProvider.getCon().prepareStatement("SELECT month as MonthText FROM clients GROUP BY MonthText");
+        ResultSet r = p.executeQuery();
+        while (r.next()){
+            String monthText = r.getString("MonthText");
+            
+            jComboMonthSource.addItem(monthText);
+            
+        }
+        r.close();
+        p.close();
+    
+    
+    }
+    
+    
     private void jbtnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnHomeActionPerformed
 
         setVisible(false);
@@ -345,12 +405,55 @@ public class Statistics extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtTotalAmountMonthActionPerformed
 
-    private void jbtnSourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSourceActionPerformed
-    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+                try{
+            ConnectionProvider.getCon();
+            showYear();
+            showMonth();
+                    showData();
+           
+        }
+        catch(Exception e){
+            e.printStackTrace();
+       
+        }
+    }//GEN-LAST:event_formWindowOpened
 
+    private void jComboYearSourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboYearSourceActionPerformed
         
-    }//GEN-LAST:event_jbtnSourceActionPerformed
         
+    }//GEN-LAST:event_jComboYearSourceActionPerformed
+
+    private void jComboMonthSourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboMonthSourceActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_jComboMonthSourceActionPerformed
+    
+    
+    private void showData(){
+    
+        try {
+            pieChart.clearData();
+            PreparedStatement p = ConnectionProvider.getCon().prepareStatement("SELECT count(source) FROM clients GROUP BY source");
+            ResultSet r = p.executeQuery();
+            int index = 0;
+            while (r.next()){
+                String source = r.getString(1);
+                double values = r.getDouble(1);
+                pieChart.addData(new ModelPieChart(source,values,getColor(index++)));
+            }
+            r.close();
+            p.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private Color getColor (int index){
+    Color[] color = new Color[]{new Color(255, 255, 204),new Color(255, 0, 102),new Color(51, 102, 255),new Color(0, 255, 51),new Color(153, 0, 153),new Color(255, 153, 102),};
+    return color[index];
+    }
         
     /**
      * @param args the command line arguments
@@ -389,10 +492,12 @@ public class Statistics extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboMonth;
+    private javax.swing.JComboBox<Object> jComboMonthSource;
     private javax.swing.JComboBox<String> jComboYear;
     private javax.swing.JComboBox<String> jComboYear1;
     private javax.swing.JComboBox<String> jComboYearSource;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -400,12 +505,13 @@ public class Statistics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jbtnHome;
     private javax.swing.JButton jbtnMoney;
-    private javax.swing.JButton jbtnSource;
     private javax.swing.JButton jbtnTotal;
     private javax.swing.JButton jbtnTotal1;
     private javax.swing.JTextField jtxtTotalAmount;
     private javax.swing.JTextField jtxtTotalAmountMonth;
+    private com.mycompany.photomanager.piecharts.PieChart pieChart;
     // End of variables declaration//GEN-END:variables
 }
