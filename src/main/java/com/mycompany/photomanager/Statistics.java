@@ -5,10 +5,9 @@
 package com.mycompany.photomanager;
 
 import com.mycompany.dbConnector.ConnectionProvider;
-import com.mycompany.photomanager.piecharts.ModelPieChart;
+
 import java.awt.Color;
 
-import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.*;
@@ -18,7 +17,6 @@ import org.jfree.chart.*;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.data.general.PieDataset;
 import org.jfree.data.jdbc.JDBCCategoryDataset;
 
 
@@ -67,10 +65,11 @@ public class Statistics extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboYearSource = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        pieChart = new com.mycompany.photomanager.piecharts.PieChart();
         jComboMonthSource = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jbtnSourceYear = new javax.swing.JButton();
+        jbtnSourceMonth = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -178,6 +177,22 @@ public class Statistics extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Year:");
 
+        jbtnSourceYear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbtnSourceYear.setText("Total source in year:");
+        jbtnSourceYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSourceYearActionPerformed(evt);
+            }
+        });
+
+        jbtnSourceMonth.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbtnSourceMonth.setText("Total source in month:");
+        jbtnSourceMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSourceMonthActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,25 +229,30 @@ public class Statistics extends javax.swing.JFrame {
                                         .addGap(33, 33, 33)
                                         .addComponent(jbtnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(39, 39, 39)
-                                        .addComponent(jComboYearSource, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(43, 43, 43)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(33, 33, 33)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jbtnSourceMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jComboYearSource, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jbtnSourceYear, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtxtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(164, Short.MAX_VALUE))
+                            .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,12 +287,14 @@ public class Statistics extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboYearSource, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnSourceYear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(pieChart, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnSourceMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(346, 346, 346))
         );
 
         pack();
@@ -410,7 +432,6 @@ public class Statistics extends javax.swing.JFrame {
             ConnectionProvider.getCon();
             showYear();
             showMonth();
-                    showData();
            
         }
         catch(Exception e){
@@ -429,32 +450,33 @@ public class Statistics extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jComboMonthSourceActionPerformed
-    
-    
-    private void showData(){
-    
-        try {
-            pieChart.clearData();
-            PreparedStatement p = ConnectionProvider.getCon().prepareStatement("SELECT count(source) FROM clients GROUP BY source");
-            ResultSet r = p.executeQuery();
-            int index = 0;
-            while (r.next()){
-                String source = r.getString(1);
-                double values = r.getDouble(1);
-                pieChart.addData(new ModelPieChart(source,values,getColor(index++)));
-            }
-            r.close();
-            p.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private Color getColor (int index){
-    Color[] color = new Color[]{new Color(255, 255, 204),new Color(255, 0, 102),new Color(51, 102, 255),new Color(0, 255, 51),new Color(153, 0, 153),new Color(255, 153, 102),};
-    return color[index];
-    }
+
+    private void jbtnSourceYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSourceYearActionPerformed
+        try
+        {
         
+        String value = jComboYearSource.getSelectedItem().toString();
+        String query = "Select Source from clients where Year = " + value;
+        JDBCCategoryDataset dataSet = new JDBCCategoryDataset(ConnectionProvider.getCon(), query);
+            JFreeChart chart = ChartFactory.createBarChart("Source year chart", "Source", "Amount", dataSet, PlotOrientation.VERTICAL, false, true, true);
+            BarRenderer renderer = null;
+            CategoryPlot plot = null;
+            renderer = new BarRenderer();
+            ChartFrame frame = new ChartFrame("Source year Chart", chart);
+            frame.setVisible(true);
+            frame.setSize(1200,650);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }//GEN-LAST:event_jbtnSourceYearActionPerformed
+
+    private void jbtnSourceMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSourceMonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnSourceMonthActionPerformed
+    
+         
     /**
      * @param args the command line arguments
      */
@@ -508,10 +530,11 @@ public class Statistics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jbtnHome;
     private javax.swing.JButton jbtnMoney;
+    private javax.swing.JButton jbtnSourceMonth;
+    private javax.swing.JButton jbtnSourceYear;
     private javax.swing.JButton jbtnTotal;
     private javax.swing.JButton jbtnTotal1;
     private javax.swing.JTextField jtxtTotalAmount;
     private javax.swing.JTextField jtxtTotalAmountMonth;
-    private com.mycompany.photomanager.piecharts.PieChart pieChart;
     // End of variables declaration//GEN-END:variables
 }
