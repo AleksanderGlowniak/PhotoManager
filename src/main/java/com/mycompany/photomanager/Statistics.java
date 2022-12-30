@@ -341,7 +341,7 @@ public class Statistics extends javax.swing.JFrame {
         {
         
         String value = jComboYear.getSelectedItem().toString();
-        String query = "Select month, price from clients where Year = " + value + " order by  month asc";
+        String query = "Select month, SUM(price) from clients where Year = " + value + " GROUP by month ASC";
         JDBCCategoryDataset dataSet = new JDBCCategoryDataset(ConnectionProvider.getCon(), query);
             JFreeChart chart = ChartFactory.createBarChart("Money chart", "Month", "Money", dataSet, PlotOrientation.VERTICAL, false, true, true);
             BarRenderer renderer = null;
