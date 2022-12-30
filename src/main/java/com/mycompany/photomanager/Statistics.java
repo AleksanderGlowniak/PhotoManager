@@ -5,9 +5,6 @@
 package com.mycompany.photomanager;
 
 import com.mycompany.dbConnector.ConnectionProvider;
-
-import java.awt.Color;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.*;
@@ -456,7 +453,7 @@ public class Statistics extends javax.swing.JFrame {
         {
         
         String value = jComboYearSource.getSelectedItem().toString();
-        String query = "Select Source from clients where Year = " + value;
+        String query = "SELECT source, COUNT(*) as Amount from clients where year = " + value + "GROUP by source";
         JDBCCategoryDataset dataSet = new JDBCCategoryDataset(ConnectionProvider.getCon(), query);
             JFreeChart chart = ChartFactory.createBarChart("Source year chart", "Source", "Amount", dataSet, PlotOrientation.VERTICAL, false, true, true);
             BarRenderer renderer = null;
@@ -473,7 +470,25 @@ public class Statistics extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnSourceYearActionPerformed
 
     private void jbtnSourceMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSourceMonthActionPerformed
-        // TODO add your handling code here:
+        try
+        {
+        
+        String value = jComboYearSource.getSelectedItem().toString();
+        String monthValue = jComboMonthSource.getSelectedItem().toString();
+        String query = "SELECT source, COUNT(*) as Amount from clients where year = " + value + " and month = " + "'" + monthValue + "'" + "GROUP by source";
+        JDBCCategoryDataset dataSet = new JDBCCategoryDataset(ConnectionProvider.getCon(), query);
+            JFreeChart chart = ChartFactory.createBarChart("Source year chart", "Source", "Amount", dataSet, PlotOrientation.VERTICAL, false, true, true);
+            BarRenderer renderer = null;
+            CategoryPlot plot = null;
+            renderer = new BarRenderer();
+            ChartFrame frame = new ChartFrame("Source year Chart", chart);
+            frame.setVisible(true);
+            frame.setSize(1200,650);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }//GEN-LAST:event_jbtnSourceMonthActionPerformed
     
          
