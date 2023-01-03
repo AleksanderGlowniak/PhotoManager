@@ -47,7 +47,6 @@ public class Statistics extends javax.swing.JFrame {
 
         jbtnHome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jbtnMoney = new javax.swing.JButton();
         jComboYear = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
@@ -68,28 +67,11 @@ public class Statistics extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jbtnSourceYear = new javax.swing.JButton();
         jbtnSourceMonth = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jComboYearCost = new javax.swing.JComboBox<>();
         jbtnMoneyCost = new javax.swing.JButton();
-        jbtnTotalCost = new javax.swing.JButton();
         jtxtTotalAmountCost = new javax.swing.JTextField();
-        jbtnTotalMonthCost = new javax.swing.JButton();
         jtxtTotalAmountMonthCost = new javax.swing.JTextField();
-        jComboMonthCost = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        jComboYearMonthCost = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
-        jComboMonthBilans = new javax.swing.JComboBox<>();
-        jComboYearMonthBilans = new javax.swing.JComboBox<>();
-        jComboYearBilans = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        jbtnMoneyBilans = new javax.swing.JButton();
-        jbtnTotalBilans = new javax.swing.JButton();
-        jbtnTotalMonthBilans = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
-        jtxtTotalAmountBilans = new javax.swing.JTextField();
-        jtxtTotalAmountMonthBilans = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
 
@@ -111,9 +93,6 @@ public class Statistics extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         jLabel2.setText("Statistics");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Charts:");
-
         jbtnMoney.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbtnMoney.setText("Year revenue chart");
         jbtnMoney.addActionListener(new java.awt.event.ActionListener() {
@@ -126,10 +105,10 @@ public class Statistics extends javax.swing.JFrame {
         jComboYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025" }));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Revenue in year:");
+        jLabel3.setText("Year statics:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel4.setText("Choose than click to show chart or total amount:");
+        jLabel4.setText("Choose year than click to show chart or total amount:");
 
         jtxtTotalAmount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jtxtTotalAmount.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +140,7 @@ public class Statistics extends javax.swing.JFrame {
         jComboYear1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025" }));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("Revenue in month:");
+        jLabel6.setText("Month statics:");
 
         jtxtTotalAmountMonth.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jtxtTotalAmountMonth.addActionListener(new java.awt.event.ActionListener() {
@@ -215,28 +194,11 @@ public class Statistics extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setText("Cost in year:");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel12.setText("Choose than click to show chart or total amount:");
-
-        jComboYearCost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboYearCost.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025" }));
-
         jbtnMoneyCost.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbtnMoneyCost.setText("Year cost chart");
         jbtnMoneyCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnMoneyCostActionPerformed(evt);
-            }
-        });
-
-        jbtnTotalCost.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jbtnTotalCost.setText("Total amount in year:");
-        jbtnTotalCost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnTotalCostActionPerformed(evt);
             }
         });
 
@@ -247,14 +209,6 @@ public class Statistics extends javax.swing.JFrame {
             }
         });
 
-        jbtnTotalMonthCost.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jbtnTotalMonthCost.setText("Total amount in month:");
-        jbtnTotalMonthCost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnTotalMonthCostActionPerformed(evt);
-            }
-        });
-
         jtxtTotalAmountMonthCost.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jtxtTotalAmountMonthCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,76 +216,17 @@ public class Statistics extends javax.swing.JFrame {
             }
         });
 
-        jComboMonthCost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboMonthCost.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel13.setText("Choose year than month click to show total amount:");
-
-        jComboYearMonthCost.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboYearMonthCost.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025" }));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("Cost in month:");
-
-        jComboMonthBilans.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboMonthBilans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-
-        jComboYearMonthBilans.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboYearMonthBilans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025" }));
-
-        jComboYearBilans.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboYearBilans.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", "2024", "2025" }));
-
         jLabel15.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel15.setText("Choose year than month click to show total amount:");
-
-        jbtnMoneyBilans.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jbtnMoneyBilans.setText("Year bilans chart");
-        jbtnMoneyBilans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnMoneyBilansActionPerformed(evt);
-            }
-        });
-
-        jbtnTotalBilans.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jbtnTotalBilans.setText("Total bilans in year:");
-        jbtnTotalBilans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnTotalBilansActionPerformed(evt);
-            }
-        });
-
-        jbtnTotalMonthBilans.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jbtnTotalMonthBilans.setText("Total bilans in month:");
-        jbtnTotalMonthBilans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnTotalMonthBilansActionPerformed(evt);
-            }
-        });
+        jLabel15.setText("Revenue");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel16.setText("Choose than click to show chart or total amount:");
+        jLabel16.setText("Costs");
 
-        jtxtTotalAmountBilans.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jtxtTotalAmountBilans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtTotalAmountBilansActionPerformed(evt);
-            }
-        });
+        jLabel17.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel17.setText("Revenue");
 
-        jtxtTotalAmountMonthBilans.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jtxtTotalAmountMonthBilans.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtTotalAmountMonthBilansActionPerformed(evt);
-            }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel17.setText("Bilans in month:");
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel18.setText("Bilans in year:");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel18.setText("Costs");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -343,56 +238,48 @@ public class Statistics extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboYearMonthBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(jComboMonthBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jbtnTotalMonthBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboYearBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jbtnMoneyBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jbtnTotalBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
+                                .addGap(92, 92, 92)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(233, 233, 233)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbtnMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(jbtnMoneyCost, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jbtnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(jtxtTotalAmount)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(94, 94, 94)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jComboYear, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(36, 36, 36)
+                                    .addComponent(jComboYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(35, 35, 35)
+                                    .addComponent(jComboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(34, 34, 34)
+                                    .addComponent(jbtnTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxtTotalAmountBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtTotalAmountMonthBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jtxtTotalAmountCost)
+                                .addComponent(jtxtTotalAmountMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(jComboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jbtnTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboYear, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jbtnMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jbtnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,53 +289,21 @@ public class Statistics extends javax.swing.JFrame {
                                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(39, 39, 39)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                                                 .addComponent(jbtnSourceMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jComboYearSource, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jbtnSourceYear, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jbtnSourceYear, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboYearMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(jComboMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jbtnTotalMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboYearCost, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jbtnMoneyCost, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jbtnTotalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxtTotalAmountCost, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtTotalAmountMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(265, 265, 265)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(312, Short.MAX_VALUE))
+                                .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(265, 265, 265)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,76 +312,46 @@ public class Statistics extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jbtnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboYear, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtnMoney, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbtnTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboYear, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtnTotal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbtnMoney, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtnTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbtnMoneyCost))
+                            .addComponent(jtxtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtnTotal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtTotalAmountMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtxtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jtxtTotalAmountMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxtTotalAmountCost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboYearCost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtnMoneyCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbtnTotalCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboYearMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtnTotalMonthCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtxtTotalAmountCost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jtxtTotalAmountMonthCost, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(14, 14, 14)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboYearBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtnMoneyBilans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbtnTotalBilans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboYearMonthBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtnTotalMonthBilans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboMonthBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtxtTotalAmountBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jtxtTotalAmountMonthBilans, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -539,7 +364,7 @@ public class Statistics extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboMonthSource, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnSourceMonth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(39, 39, 39))
+                .addGap(303, 303, 303))
         );
 
         pack();
@@ -636,6 +461,28 @@ public class Statistics extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.toString());
         }
         
+                try
+        {
+
+            String value = jComboYear.getSelectedItem().toString();
+            String query2 = "Select sum(value) as total from costs where year = " + value;
+            Connection sqlConn = ConnectionCost.getCon();
+            pst = sqlConn.prepareStatement(query2);
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+
+                String s = rs.getString("total");
+                jtxtTotalAmountCost.setText(s);
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
         
     }//GEN-LAST:event_jbtnTotalActionPerformed
 
@@ -664,7 +511,29 @@ public class Statistics extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, e.toString());
         }
-        
+        try
+        {
+
+            String value = jComboYear1.getSelectedItem().toString();
+            String monthValue = jComboMonth.getSelectedItem().toString();
+            String query = "Select sum(value) as totalMonth from costs where year = " + value + " and month = " + "'" + monthValue + "'";
+            Connection sqlConn = ConnectionCost.getCon();
+            pst = sqlConn.prepareStatement(query);
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+
+                String s = rs.getString("totalMonth");
+                jtxtTotalAmountMonthCost.setText(s);
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
         
     }//GEN-LAST:event_jbtnTotal1ActionPerformed
 
@@ -743,7 +612,7 @@ public class Statistics extends javax.swing.JFrame {
         try
         {
         
-        String value = jComboYearCost.getSelectedItem().toString();
+        String value = jComboYear.getSelectedItem().toString();
         String query = "Select month, SUM(value) from costs where Year = " + value + " GROUP by month ASC";
         JDBCCategoryDataset dataSet = new JDBCCategoryDataset(ConnectionCost.getCon(), query);
             JFreeChart chart = ChartFactory.createBarChart("Cost chart", "Month", "Money", dataSet, PlotOrientation.VERTICAL, false, true, true);
@@ -760,102 +629,13 @@ public class Statistics extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jbtnMoneyCostActionPerformed
 
-    private void jbtnTotalCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTotalCostActionPerformed
-         
-        try
-        {
-
-            String value = jComboYearCost.getSelectedItem().toString();
-            String query = "Select sum(value) as total from costs where year = " + value;
-            Connection sqlConn = ConnectionCost.getCon();
-            pst = sqlConn.prepareStatement(query);
-
-            ResultSet rs = pst.executeQuery();
-
-            if(rs.next()){
-
-                String s = rs.getString("total");
-                jtxtTotalAmountCost.setText(s);
-
-            }
-
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }//GEN-LAST:event_jbtnTotalCostActionPerformed
-
     private void jtxtTotalAmountCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTotalAmountCostActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtTotalAmountCostActionPerformed
 
-    private void jbtnTotalMonthCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTotalMonthCostActionPerformed
-        try
-        {
-
-            String value = jComboYearMonthCost.getSelectedItem().toString();
-            String monthValue = jComboMonthCost.getSelectedItem().toString();
-            String query = "Select sum(value) as totalMonth from costs where year = " + value + " and month = " + "'" + monthValue + "'";
-            Connection sqlConn = ConnectionCost.getCon();
-            pst = sqlConn.prepareStatement(query);
-
-            ResultSet rs = pst.executeQuery();
-
-            if(rs.next()){
-
-                String s = rs.getString("totalMonth");
-                jtxtTotalAmountMonthCost.setText(s);
-
-            }
-
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }//GEN-LAST:event_jbtnTotalMonthCostActionPerformed
-
     private void jtxtTotalAmountMonthCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTotalAmountMonthCostActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtTotalAmountMonthCostActionPerformed
-
-    private void jbtnMoneyBilansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMoneyBilansActionPerformed
-        try
-        {
-        
-        String value = jComboYearBilans.getSelectedItem().toString();
-        String query = "Select month, SUM(value) from costs where Year = " + value + " GROUP by month ASC";
-        JDBCCategoryDataset dataSet = new JDBCCategoryDataset(ConnectionCost.getCon(), query);
-            JFreeChart chart = ChartFactory.createBarChart("Cost chart", "Month", "Money", dataSet, PlotOrientation.VERTICAL, false, true, true);
-            BarRenderer renderer = null;
-            CategoryPlot plot = null;
-            renderer = new BarRenderer();
-            ChartFrame frame = new ChartFrame("Cost Chart", chart);
-            frame.setVisible(true);
-            frame.setSize(1200,650);
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-    }//GEN-LAST:event_jbtnMoneyBilansActionPerformed
-
-    private void jbtnTotalBilansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTotalBilansActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnTotalBilansActionPerformed
-
-    private void jbtnTotalMonthBilansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTotalMonthBilansActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtnTotalMonthBilansActionPerformed
-
-    private void jtxtTotalAmountBilansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTotalAmountBilansActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtTotalAmountBilansActionPerformed
-
-    private void jtxtTotalAmountMonthBilansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTotalAmountMonthBilansActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtTotalAmountMonthBilansActionPerformed
     
          
     /**
@@ -895,22 +675,11 @@ public class Statistics extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboMonth;
-    private javax.swing.JComboBox<String> jComboMonthBilans;
-    private javax.swing.JComboBox<String> jComboMonthCost;
     private javax.swing.JComboBox<Object> jComboMonthSource;
     private javax.swing.JComboBox<String> jComboYear;
     private javax.swing.JComboBox<String> jComboYear1;
-    private javax.swing.JComboBox<String> jComboYearBilans;
-    private javax.swing.JComboBox<String> jComboYearCost;
-    private javax.swing.JComboBox<String> jComboYearMonthBilans;
-    private javax.swing.JComboBox<String> jComboYearMonthCost;
     private javax.swing.JComboBox<String> jComboYearSource;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -925,21 +694,14 @@ public class Statistics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jbtnHome;
     private javax.swing.JButton jbtnMoney;
-    private javax.swing.JButton jbtnMoneyBilans;
     private javax.swing.JButton jbtnMoneyCost;
     private javax.swing.JButton jbtnSourceMonth;
     private javax.swing.JButton jbtnSourceYear;
     private javax.swing.JButton jbtnTotal;
     private javax.swing.JButton jbtnTotal1;
-    private javax.swing.JButton jbtnTotalBilans;
-    private javax.swing.JButton jbtnTotalCost;
-    private javax.swing.JButton jbtnTotalMonthBilans;
-    private javax.swing.JButton jbtnTotalMonthCost;
     private javax.swing.JTextField jtxtTotalAmount;
-    private javax.swing.JTextField jtxtTotalAmountBilans;
     private javax.swing.JTextField jtxtTotalAmountCost;
     private javax.swing.JTextField jtxtTotalAmountMonth;
-    private javax.swing.JTextField jtxtTotalAmountMonthBilans;
     private javax.swing.JTextField jtxtTotalAmountMonthCost;
     // End of variables declaration//GEN-END:variables
 }
