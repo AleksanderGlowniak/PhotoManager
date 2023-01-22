@@ -1,5 +1,5 @@
 # PhotoManager
-Photomanager is a program used for a photographers to manage their's business. It's wrote i in java language based on gluon. For database I used MySql. 
+Photomanager is a program used for a photographers to manage their's business. It's wrote i in java language based on gluon and maven. For database I used MySql. 
 
 Plan for program:
 1) Login Panel.
