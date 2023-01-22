@@ -189,5 +189,6 @@ nbdist/
 .nb-gradle/
 target/
 dbConnector/
+Login.java
 
 # End of https://www.toptal.com/developers/gitignore/api/netbeans,eclipse,intellij+all
